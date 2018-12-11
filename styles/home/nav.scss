@@ -1,0 +1,28 @@
+.style_div {
+  width: 100%;
+  background: #fff;
+  padding: 6px 0;
+  .style_ul {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0;
+    .style_li {
+      float: left;
+      list-style: none;
+      text-align: center;
+      padding-bottom: 20px;
+      padding-top: 10px;
+      .style_img {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto;
+        display: block;
+      }
+      .style_span {
+        color: #3c3c3c;
+        font-size:  24px;
+      }
+    }
+  }
+}
