@@ -9,6 +9,14 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
+const devProxy = {
+  '/api': {
+    target: 'http://120.27.134.211:90/',
+    pathRewrite: {'^/api': '/'},
+    changeOrigin: true
+  }
+}
+
 // 缓存设置
 const ssrCache = new LRUCache({
     max: 100,
@@ -20,6 +28,13 @@ app.prepare()
     const server = express()
     if (!dev) {
         server.use(compression()) //gzip
+    }
+
+    if (dev && devProxy) {
+      const proxyMiddleware = require('http-proxy-middleware')
+      Object.keys(devProxy).forEach(function (context) {
+        server.use(proxyMiddleware(context, devProxy[context]))
+      })
     }
 
     server.get('/', (req, res) => {

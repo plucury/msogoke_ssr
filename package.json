@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node server/server.js",
-    "build": "rm -rf .next && next build",
+    "build": "next build",
     "start": "NODE_ENV=production pm2 start server/server.js",
     "stop": "pm2 stop server/server.js",
     "build-analyze": "BUNDLE_ANALYZE=both yarn build"
@@ -32,7 +32,9 @@
     "compression": "^1.7.1",
     "express": "^4.16.3",
     "file-loader": "^1.1.5",
+    "flex.css": "1.0.1",
     "glob": "^7.1.2",
+    "http-proxy-middleware": "^0.19.1",
     "lru-cache": "^4.1.1",
     "module-alias": "^2.0.1",
     "next": "^5.0.0",
@@ -46,17 +48,23 @@
     "postcss-adaptive": "^0.5.0",
     "postcss-easy-import": "^3.0.0",
     "postcss-loader": "^2.0.8",
+    "query-string": "^6.2.0",
     "raw-loader": "^0.5.1",
     "react": "latest",
+    "react-back-top": "^1.0.4",
     "react-dom": "latest",
+    "react-dropzone": "^3.11.0",
     "react-redux": "^5.0.6",
+    "react-share-buttons": "^1.0.1",
+    "react-touch-loader": "^1.1.0",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.6",
     "styled-jsx": "^2.1.1",
     "styled-jsx-plugin-postcss": "^0.1.0",
-    "styled-jsx-plugin-sass": "^0.1.0"
+    "styled-jsx-plugin-sass": "^0.1.0",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "babel-plugin-css-modules-transform": "^1.2.7",
