@@ -19,6 +19,7 @@ class Home extends React.Component {
     render() {
         let bgClass = { background: '#00bb9c' }
         const  { navMain=[] } = this.props
+        console.log(navMain,'navMain')
         return (
             <div>
                 <Header
@@ -48,7 +49,10 @@ class Home extends React.Component {
         )
     }
 }
-const mapStateToProps = ({ navMain }) => ({ navMain })
+const mapStateToProps = state => { 
+    console.log(state, 'show state')
+    return {navMain: state.getNavData.navMain}
+}
 
 const mapDispatchToProps = (dispatch) => {
     return {

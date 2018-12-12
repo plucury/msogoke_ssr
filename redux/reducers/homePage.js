@@ -10,7 +10,7 @@
 
  * homeData		用户主页数据
  */
-let initialState = {
+export const homeDataInitialState = {
 	isFetching: false,
 	dataGeted: false,
 	homeData: [],
@@ -19,11 +19,11 @@ let initialState = {
 }
 
 
-const homeData = (state = initialState, {type, payload}) => {
-	switch type {
+const homeData = (state = homeDataInitialState, {type, payload}) => {
+	switch (type) {
 		case  'INIT_HOME_DATA':
 			return {
-				...initialState
+				...homeDataInitialState
 			}
 		case  'FETCHING_HOME_DATA':
 			return {

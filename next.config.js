@@ -41,35 +41,6 @@ if (isAnalyze) {
           return cfg
         }
     })
-    // module.exports = withBundleAnalyzer({
-    //     analyzeServer: ["server", "both"].includes(process.env.BUNDLE_ANALYZE),
-    //     analyzeBrowser: ["browser", "both"].includes(process.env.BUNDLE_ANALYZE),
-    //     bundleAnalyzerConfig: {
-    //         server: {
-    //             analyzerMode: 'static',
-    //             reportFilename: '../../bundles/server.html'
-    //         },
-    //         browser: {
-    //             analyzerMode: 'static',
-    //             reportFilename: '../bundles/client.html'
-    //         }
-    //     }
-    // }, withSass(withCSS(withSourceMaps({
-    //     webpack: function (cfg) {
-    //       const originalEntry = cfg.entry
-    //       cfg.entry = async () => {
-    //         const entries = await originalEntry()
-
-    //         if (entries['main.js']) {
-    //           entries['main.js'].unshift('./client/polyfills.js')
-    //         }
-
-    //         return entries
-    //       }
-
-    //       return cfg
-    //     }
-    // }))))
 } else {
     module.exports = withPlugins([
         withSass,
@@ -91,5 +62,4 @@ if (isAnalyze) {
           return cfg
         }
     })
-    // module.exports = withSass(withCSS(withSourceMaps()))
 }

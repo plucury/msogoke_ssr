@@ -12,7 +12,7 @@ const handle = app.getRequestHandler()
 const devProxy = {
   '/api': {
     target: 'http://120.27.134.211:90/',
-    pathRewrite: {'^/api': '/'},
+    pathRewrite: {'^/': '/'},
     changeOrigin: true
   }
 }
@@ -30,12 +30,12 @@ app.prepare()
         server.use(compression()) //gzip
     }
 
-    if (dev && devProxy) {
-      const proxyMiddleware = require('http-proxy-middleware')
-      Object.keys(devProxy).forEach(function (context) {
-        server.use(proxyMiddleware(context, devProxy[context]))
-      })
-    }
+    // if (dev && devProxy) {
+    //   const proxyMiddleware = require('http-proxy-middleware')
+    //   Object.keys(devProxy).forEach(function (context) {
+    //     server.use(proxyMiddleware(context, devProxy[context]))
+    //   })
+    // }
 
     server.get('/', (req, res) => {
         renderAndCache(req, res, '/')
