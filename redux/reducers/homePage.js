@@ -23,7 +23,7 @@ const homeData = (state = homeDataInitialState, {type, payload}) => {
 	switch (type) {
 		case  'INIT_HOME_DATA':
 			return {
-				...homeDataInitialState
+				...state
 			}
 		case  'FETCHING_HOME_DATA':
 			return {
@@ -38,14 +38,15 @@ const homeData = (state = homeDataInitialState, {type, payload}) => {
 			// 	? state.homeData.concat(items) 
 			// 	: state.homeData
 			// ) : items
-			return {
-					...state,
-					isFetching: false,
-					dataGeted: true,
-					homeData: [...state.homeData, ...payload.data],
-					page: ++state.page,
-					hasMore: payload.data.length != 0
-				}
+			const newState = {
+				...state,
+				isFetching: false,
+				dataGeted: true,
+				homeData: [...state.homeData, ...payload.data],
+				page: ++state.page,
+				hasMore: payload.data.length != 0
+			}
+			return newState
 		case 'FETCHING_HOME_FAILED':
 			return {
 				isFetching: false,

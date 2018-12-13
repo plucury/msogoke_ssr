@@ -19,10 +19,8 @@ export const getNav = () => async (dispatch, getState) => {
         console.log('error: ', error)
     }
 }
-console.log(initialTotalState, 'initialState in store')
 
 export const initStore = (initialState = initialTotalState) => {
-
     console.log(initialTotalState, 'initialState in initStore 3')
     return createStore(reducers, initialState, composeWithDevTools(applyMiddleware(thunkMiddleware)))
 }

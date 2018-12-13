@@ -4,12 +4,10 @@ import {
 
 // 查询门店列表
 /* data: status, data  */
-export const getHomeDataAction = (query, refresh) => {
+export const getHomeDataAction = (query, baseUrl, refresh) => {
   return async (dispatch) => {
-    refresh && dispatch(initHomeData())
-    console.log('getting data in actions')
-    const res = await getHomeData(query);
-
+    // refresh && dispatch(initHomeData())
+    const res = await getHomeData(query, baseUrl);
     if (res.status !== 1) {
       dispatch(getHomeDataFailed(res));
       return;
@@ -26,6 +24,7 @@ export const initHomeData = (payload) => {
 }
 
 export const getHomeDataSuccess = (payload) => {
+  console.log('FETCHING_HOME_SUCCESS')
   return {
     type: 'FETCHING_HOME_SUCCESS',
     payload,

@@ -1,23 +1,25 @@
+import fetch from 'isomorphic-unfetch'
 
 function getTokenFromSessionStorage() {
-  const user = localStorage.getItem('user')
+  const user = null
   if(!user) return null
   const userJson = JSON.parse(user)
   return userJson.token
 }
 
-function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
-    return response
+function checkStatus(res) {
+  if (res.status >= 200 && res.status < 300) {
+    return res
   } else {
 
-    if (response.status === 401) {
-      window.location.href = '/admin/user/login';
+    if (res.status === 401) {
+      // window.location.href = '/admin/user/login';
+      console.log('not logined')
       return;
     }
 
-    var error = new Error(response.statusText)
-    error.response = response
+    var error = new Error(res.statusText)
+    error.res = res
     throw error
   }
 }
@@ -29,6 +31,7 @@ function parseJSON(response) {
 function checkSuccess(response) {
   if (!response.success) {
     // handle message
+    console.log('checked')
   }
 
   return response
@@ -47,7 +50,7 @@ export function exportFetch(url) {
 }
 
 export default function request(url, options) {
-  const token = getTokenFromSessionStorage()
+  // const token = getTokenFromSessionStorage()
   const defaultOptions = {
     // credentials: 'include',
     // headers: {
@@ -71,6 +74,7 @@ export default function request(url, options) {
       };
     }
   }
+  console.log(url, newOptions, 'fetch options')
   return fetch(url, newOptions)
           .then(checkStatus)
           .then(parseJSON)

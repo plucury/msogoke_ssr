@@ -27,9 +27,8 @@ import './HomePage.scss'
 // )
 
 const mapStateToProps = state => { 
-    console.log(state, 'show state')
     return {
-			...state.homeData
+			homeData: state.homeData
 		}
 }
 const mapDispatchToProps = (dispatch) => {
@@ -39,6 +38,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class IndexPage extends React.Component {
+
+	// static async getInitialProps({store, isServer, pathname, query}) {
+
+
 	constructor(props){
 		super(props);
 
@@ -53,7 +56,7 @@ class IndexPage extends React.Component {
 
 	componentDidMount(){
 
-		this.props.getHomeDataAction({token: 'DBF6C199828A0F555E09-73HLKC-47P9'})
+		
 
 		let token
 		// const { token } = this.props.loginedSogoker
@@ -84,6 +87,7 @@ class IndexPage extends React.Component {
 	}
 
 	componentWillReceiveProps(newProps){
+		console.log(newProps, 'props of new props')
 		const { page } = this.state
 		// if (newProps.loginedSogoker && newProps.loginedSogoker.id) {
 		// 	return newProps != this.props
