@@ -50,7 +50,7 @@ const homeData = (state = homeDataInitialState, {type, payload}) => {
 			return {
 				isFetching: false,
 				dataGeted: false,
-				msg: action.msg
+				msg: payload.msg
 			}
 		default: 
 			return state

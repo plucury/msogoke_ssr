@@ -30,12 +30,12 @@ app.prepare()
         server.use(compression()) //gzip
     }
 
-    // if (dev && devProxy) {
-    //   const proxyMiddleware = require('http-proxy-middleware')
-    //   Object.keys(devProxy).forEach(function (context) {
-    //     server.use(proxyMiddleware(context, devProxy[context]))
-    //   })
-    // }
+    if (dev && devProxy) {
+      const proxyMiddleware = require('http-proxy-middleware')
+      Object.keys(devProxy).forEach(function (context) {
+        server.use(proxyMiddleware(context, devProxy[context]))
+      })
+    }
 
     server.get('/', (req, res) => {
         renderAndCache(req, res, '/')
@@ -43,6 +43,10 @@ app.prepare()
     
     server.get('/search', (req, res) => {
         return app.render(req, res, '/search', req.query)
+    })
+
+    server.get('/home', (req, res) => {
+        return app.render(req, res, '/home', req.query)
     })
 
     apiArray.map(method => {

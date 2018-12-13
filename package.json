@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node server/server.js",
     "build": "next build",
-    "start": "NODE_ENV=production pm2 start server/server.js",
+    "start": "set NODE_ENV=production && pm2 start server/server.js",
     "stop": "pm2 stop server/server.js",
     "build-analyze": "BUNDLE_ANALYZE=both yarn build"
   },

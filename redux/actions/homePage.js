@@ -4,9 +4,10 @@ import {
 
 // 查询门店列表
 /* data: status, data  */
-export const getHomeData = (query, refresh) => {
+export const getHomeDataAction = (query, refresh) => {
   return async (dispatch) => {
     refresh && dispatch(initHomeData())
+    console.log('getting data in actions')
     const res = await getHomeData(query);
 
     if (res.status !== 1) {

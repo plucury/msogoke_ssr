@@ -1,0 +1,127 @@
+
+.postItem {
+	width: 100%;
+	background: #fff;
+	position: relative;
+
+	.post-cover-wrap {
+		max-height: 5rem;
+		min-height: 4rem;
+		overflow: hidden;
+	}
+
+	img.cover {
+		width: 100%;
+		height: auto;
+	}
+
+	img.cover.use-sogoke {
+		max-height: 5rem;
+		min-height: 4rem;
+	}
+
+	img.cover.use-custom {
+
+	}
+
+	.post-body-wrap {
+
+		h4 {
+			font-weight: normal;
+			//line-height: 1rem;
+			line-height: 0.72rem;
+			color: #072617;
+		}
+
+		p.context {
+			margin: 0.16rem 0 0.2rem;
+			line-height: 0.5rem;
+			color: #a9a9a9;
+			-webkit-box-orient: vertical;
+	    	-webkit-line-clamp: 3;
+		    box-orient: vertical;
+		    line-clamp: 3;
+		    user-select: text;
+		    box-sizing: border-box;
+		    display: -webkit-box;
+		    overflow-x: hidden;
+		    overflow-y: hidden;
+		    text-overflow: ellipsis;
+
+		    a {
+		    	color: #a9a9a9;
+		    }
+		}
+
+		div.user {
+			margin: 10px 0;
+
+			img.avatar {
+				margin-right: 5px;
+			}
+
+			.little-block {
+				display: inline-block;
+				vertical-align: middle;
+				margin-left: 0.2rem;
+
+				.userlink {
+					color: #63a485;
+					display: block;
+					line-height: 0.2rem;
+					margin: 0;
+					text-decoration: none;
+				}
+				span {
+					color: gray;
+					display: block;
+					line-height: 0.4rem;
+					margin-top: 0.2rem;
+					vertical-align: bottom;
+				}
+			}
+
+			.post-tips {
+				color: #a9a9a9;
+
+				img {
+					margin-right: 0.12rem;
+					webkit-transform: scale(0.8);
+					-moz-transform: scale(0.8);
+					-ms-transform: scale(0.8);
+					-o-transform: scale(0.8);
+					transform: scale(0.8);
+				}
+
+				span {
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+
+	.action-bar {
+		height: 1.066667rem;
+
+		.single-action {
+			height: 1.066667rem;
+			line-height: 1.066667rem;
+			text-align: center;
+			color: #a9a9a9;
+
+			img {
+				margin-right: 0.16rem;
+			}
+
+			a {
+				color: #a9a9a9;
+			}
+
+			span {
+				vertical-align: middle;
+			}
+		}
+	}
+}
+
+
