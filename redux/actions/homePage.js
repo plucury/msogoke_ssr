@@ -12,6 +12,7 @@ export const getHomeDataAction = (query, baseUrl, refresh) => {
       dispatch(getHomeDataFailed(res));
       return;
     }
+    console.log('ready to dispatch success')
     await dispatch(getHomeDataSuccess(res));
   }
 }

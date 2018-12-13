@@ -42,11 +42,7 @@ if (isAnalyze) {
         }
     })
 } else {
-    module.exports = withPlugins([
-        withSass,
-        withCSS,
-        withSourceMaps
-    ], {
+  module.exports = withSass(withCSS(withSourceMaps({
         webpack: function (cfg) {
           const originalEntry = cfg.entry
           console.log(cfg, 'webpack logs')
@@ -61,5 +57,10 @@ if (isAnalyze) {
 
           return cfg
         }
-    })
+    })))
+    // module.exports = withPlugins([
+    //     withSass,
+    //     withCSS,
+    //     withSourceMaps
+    // ], )
 }

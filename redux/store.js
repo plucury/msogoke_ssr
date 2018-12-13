@@ -1,10 +1,9 @@
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
+
 import fetchData from '/utils/fetchData'
 import reducers, {initialTotalState} from './reducers'
-import thunk from 'redux-thunk';
-
 
 // actions
 const receiveNav = (response) => ({
@@ -21,7 +20,7 @@ export const getNav = () => async (dispatch, getState) => {
 }
 
 export const initStore = (initialState = initialTotalState) => {
-    console.log(initialTotalState, 'initialState in initStore 3')
+
     return createStore(reducers, initialState, composeWithDevTools(applyMiddleware(thunkMiddleware)))
 }
 

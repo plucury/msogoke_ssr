@@ -7,19 +7,22 @@ import Layout from 'layout/BasicLayout'
 import HomePage from '../components/HomePage/HomePage'
 import Head from 'next/head'
 import { getHomeDataAction } from '/redux/actions/homePage';
+import 'styles/HomePage/style.scss'
 
 class Home extends React.Component {
     // static getInitialProps ({ store, isServer }) {
-    static getInitialProps ({ store, req }) {
-        const baseUrl = req ? `http://120.27.134.211:90` : '';
-      store.dispatch(getHomeDataAction({token: 'DBF6C199828A0F555E09-73HLKC-47P9' }, baseUrl))
-      return { custom: 'custom' }
+    static async getInitialProps ({ store, req }) {
+        const baseUrl = `http://120.27.134.211:90`
+        // await this.props.getHomeDataAction({token: 'DBF6C199828A0F555E09-73HLKC-47P9' }, baseUrl)
+      await store.dispatch(getHomeDataAction({token: 'DBF6C199828A0F555E09-73HLKC-47P9' }, baseUrl))
+      return {}
     }
 
 
 
     componentDidMount () {
-
+        // const baseUrl = `http://120.27.134.211:90`
+        // this.props.getHomeDataAction({token: 'DBF6C199828A0F555E09-73HLKC-47P9' }, baseUrl)
     }
 
     componentWillReceiveProps (props) {

@@ -10,37 +10,10 @@ import PostItem from '../templates/PostItem/PostItem';
 // import HeadBar from './HeadBar/HeadBar'
 // import FootBlock from './FootBlock'
 // import CreationPost from './Creations/CreationPost';
-import './HomePage.scss'
-
-
-// @connect(
-// 	state => (
-// 		{
-// 			...state.homeData,
-// 			loginedSogoker: {
-// 				...state.userData
-// 			}
-// 		}),
-// 	dispatch => ({
-// 			getHomeData: bindActionCreators(getHomeData, dispatch)
-// 		})
-// )
-
-const mapStateToProps = state => { 
-    return {
-			homeData: state.homeData
-		}
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getHomeDataAction: bindActionCreators(getHomeDataAction, dispatch)
-    }
-}
+// import './HomePage.scss'
+// import 'styles/HomePage/style.scss'
 
 class IndexPage extends React.Component {
-
-	// static async getInitialProps({store, isServer, pathname, query}) {
-
 
 	constructor(props){
 		super(props);
@@ -114,8 +87,8 @@ class IndexPage extends React.Component {
 
 	render() {
 		let { homeData, hasMore } = this.props
-        let { initializing, showed } = this.state
-        let { refresh, loadMore } = this
+    let { initializing, showed } = this.state
+    let { refresh, loadMore } = this
 
 		return (
 			<div className="bg-gray pos-r">
@@ -138,6 +111,18 @@ class IndexPage extends React.Component {
 			</div>
 		)
 	}
+}
+
+
+const mapStateToProps = state => { 
+    return {
+			...state.homeData
+		}
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getHomeDataAction: bindActionCreators(getHomeDataAction, dispatch)
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(IndexPage)
