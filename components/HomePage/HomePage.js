@@ -108,7 +108,7 @@ class IndexPage extends React.Component {
 						<div className="index-block">
 							<div className="post-wrap">
 							{
-								homeData.map((item, index) => <PostItem key={index} { ...item } />)
+								homeData.map((item,  index) => <PostItem key={index} { ...item } />)
 							}
 							</div>
 							
