@@ -2,11 +2,13 @@ import React from 'react';
 // import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import {format_unixtime} from 'dreamcog_timeformat'
+import { getImgStyle } from '/utils/utils'
 // import LazyLoad from 'react-lazyload'
 // import { autobind } from 'core-decorators'
 
-// import ActionBar from '../DetailPages/ActionbarBlock'
-// import Simage from '/components/templates/AutoImage/Simage';
+import ActionBar from '../ActionBar/ActionbarBlock'
+// import Simage from '../AutoImage/Simage';
+import IMG from '/static/images/default.png'
 
 import './PostItem.scss';
 
@@ -63,9 +65,15 @@ export default class PostItem extends React.Component {
 			finalType = type
 		}
 
+		const imgSrc = `/static/images/label-${type}.png`
+
 		return (
 			<div className="postItem" itemType={ type } itemID={ raw_id }>
-
+				{
+					cover_photo ? 
+					<img className="icon-type sogoke-image" style={getImgStyle('162x81')} src={imgSrc} />
+					: ''
+				}
 				{
 					cover_photo ? 
 					<div className="post-cover-wrap">
@@ -80,10 +88,16 @@ export default class PostItem extends React.Component {
 					
 					<div className="user">
 							<img className="avatar" src={`https://sogoke-avatar.b0.upaiyun.com/media/user/${ creator_id }/${ avatar }/avatar!large`} />
+							<div className="little-block">
+								<a href="" className="userlink fs12">{creator_name}</a>
+								<span className="fs12">{ format_unixtime(created_at) }</span>
+							</div>
 						<div className="little-block">
 						</div>
 					</div>
 					<div className="hr-line"></div>
+
+					<ActionBar />
 				</div>
 			</div>
 		)

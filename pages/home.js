@@ -10,16 +10,6 @@ import { getHomeDataAction } from '/redux/actions/homePage';
 import { readyFlexible } from '/redux/actions/globalActions';
 import 'styles/HomePage/style.scss'
 
-async function getFlexible(){
-    const flexibleJs = document.createElement('script')
-    flexibleJs.src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"
-    await document.body.appendChild(flexibleJs)
-    console.log('flexed loaded')
-    await setTimeout(()=>{
-        this.props.readyFlexible()
-    },500)
-}
-
 class Home extends React.Component {
 
     constructor(props){
@@ -29,8 +19,6 @@ class Home extends React.Component {
             initializing: 0,
             showed: false
         }
-
-        this.getFlexible = getFlexible.bind(this)
     }
 
     // static getInitialProps ({ store, isServer }) {

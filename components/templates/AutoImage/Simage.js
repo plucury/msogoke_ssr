@@ -19,14 +19,14 @@ export default class Simage extends React.Component {
 
 	render(){
 		const { onClick, className, target } = this.props
-
+		const src = `/static/images/${target || 'default.png'}`
 		return (
 			<img 
 				style={this.getStyle()} 
 				onClick={onClick} 
 				{...this.props}
 				className={`sogoke-image ${className || ''}`} 
-				src={require(`../../Images/${target}`)}
+				src={require(src)}
 			>
 			</img>
 		)

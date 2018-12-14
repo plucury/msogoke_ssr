@@ -2,6 +2,8 @@ const withBundleAnalyzer = require("@zeit/next-bundle-analyzer")
 // const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer")
 const withSass = require('@zeit/next-sass')
 const withCSS = require('@zeit/next-css')
+const withLess = require('@zeit/next-less')
+const withImages = require('next-images')
 const withSourceMaps = require('@zeit/next-source-maps')
 const isAnalyze = process.env.BUNDLE_ANALYZE === 'both'
 const withPlugins = require('next-compose-plugins');
@@ -11,6 +13,7 @@ if (isAnalyze) {
         withSass,
         withCSS,
         withSourceMaps,
+        withImages,
         [withBundleAnalyzer, {
             analyzeServer: ["server", "both"].includes(process.env.BUNDLE_ANALYZE),
             analyzeBrowser: ["browser", "both"].includes(process.env.BUNDLE_ANALYZE),
@@ -42,22 +45,22 @@ if (isAnalyze) {
         }
     })
 } else {
-  module.exports = withSass(withCSS(withSourceMaps({
-        webpack: function (cfg) {
-          const originalEntry = cfg.entry
-          console.log(cfg, 'webpack logs')
-          cfg.entry = async () => {
-            const entries = await originalEntry()
-            if (entries['main.js']) {
-              entries['main.js'].unshift('./client/polyfills.js')
+  module.exports = withLess(withImages(withSass(withCSS(withSourceMaps({
+          webpack: function (cfg) {
+            const originalEntry = cfg.entry
+            console.log(cfg, 'webpack logs')
+            cfg.entry = async () => {
+              const entries = await originalEntry()
+              if (entries['main.js']) {
+                entries['main.js'].unshift('./client/polyfills.js')
+              }
+  
+              return entries
             }
-
-            return entries
+  
+            return cfg
           }
-
-          return cfg
-        }
-    })))
+      })))))
     // module.exports = withPlugins([
     //     withLess,
     //     withCSS,

@@ -93,10 +93,18 @@ class IndexPage extends React.Component {
 
 		return (
 			<div className="bg-gray pos-r">
-				<div className="tloader-wrapper pure-g">
+				<div className="pure-g">
 
 					{
-						homeData && homeData.length && flexed ?
+						!flexed ? 
+						<div className="loading-div">
+							<div className="line"></div>
+						</div>
+						: ''
+					}
+
+					{
+						homeData && homeData.length  ?
 						<div className="index-block">
 							<div className="post-wrap">
 							{
@@ -105,7 +113,7 @@ class IndexPage extends React.Component {
 							</div>
 							
 						</div>
-						: <div>loading</div>
+						: ''
 					}
 
 				</div>

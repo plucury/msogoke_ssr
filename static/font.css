@@ -1,0 +1,107 @@
+.fs12 {
+    font-size: 12px!important
+}
+
+[data-dpr="2"] .fs12 {
+    font-size: 24px!important
+}
+
+[data-dpr="3"] .fs12 {
+    font-size: 36px!important
+}
+
+.fs13 {
+    font-size: 13px!important
+}
+
+[data-dpr="2"] .fs13 {
+    font-size: 26px!important
+}
+
+[data-dpr="3"] .fs13 {
+    font-size: 39px!important
+}
+
+.fs14 {
+    font-size: 14px!important
+}
+
+[data-dpr="2"] .fs14 {
+    font-size: 28px!important
+}
+
+[data-dpr="3"] .fs14 {
+    font-size: 42px!important
+}
+
+.fs15 {
+    font-size: 15px!important
+}
+
+[data-dpr="2"] .fs15 {
+    font-size: 30px!important
+}
+
+[data-dpr="3"] .fs15 {
+    font-size: 45px!important
+}
+
+.fs16 {
+    font-size: 16px!important
+}
+
+[data-dpr="2"] .fs16 {
+    font-size: 32px!important
+}
+
+[data-dpr="3"] .fs16 {
+    font-size: 48px!important
+}
+
+.fs18 {
+    font-size: 18px!important
+}
+
+[data-dpr="2"] .fs18 {
+    font-size: 36px!important
+}
+
+[data-dpr="3"] .fs18 {
+    font-size: 54px!important
+}
+
+.fs20 {
+    font-size: 20px!important
+}
+
+[data-dpr="2"] .fs20 {
+    font-size: 40px!important
+}
+
+[data-dpr="3"] .fs20 {
+    font-size: 60px!important
+}
+
+.fs22 {
+    font-size: 22px!important
+}
+
+[data-dpr="2"] .fs22 {
+    font-size: 44px!important
+}
+
+[data-dpr="3"] .fs22 {
+    font-size: 66px!important
+}
+
+.fs24 {
+    font-size: 24px!important
+}
+
+[data-dpr="2"] .fs24 {
+    font-size: 48px!important
+}
+
+[data-dpr="3"] .fs24 {
+    font-size: 72px!important
+}
