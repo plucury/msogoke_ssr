@@ -59,7 +59,7 @@ if (isAnalyze) {
         }
     })))
     // module.exports = withPlugins([
-    //     withSass,
+    //     withLess,
     //     withCSS,
     //     withSourceMaps
     // ], )

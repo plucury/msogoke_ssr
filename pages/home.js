@@ -7,12 +7,36 @@ import Layout from 'layout/BasicLayout'
 import HomePage from '../components/HomePage/HomePage'
 import Head from 'next/head'
 import { getHomeDataAction } from '/redux/actions/homePage';
+import { readyFlexible } from '/redux/actions/globalActions';
 import 'styles/HomePage/style.scss'
 
+async function getFlexible(){
+    const flexibleJs = document.createElement('script')
+    flexibleJs.src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"
+    await document.body.appendChild(flexibleJs)
+    console.log('flexed loaded')
+    await setTimeout(()=>{
+        this.props.readyFlexible()
+    },500)
+}
+
 class Home extends React.Component {
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            initializing: 0,
+            showed: false
+        }
+
+        this.getFlexible = getFlexible.bind(this)
+    }
+
     // static getInitialProps ({ store, isServer }) {
     static async getInitialProps ({ store, req }) {
         const baseUrl = `http://120.27.134.211:90`
+        console.log('get init in home component')
         // await this.props.getHomeDataAction({token: 'DBF6C199828A0F555E09-73HLKC-47P9' }, baseUrl)
       await store.dispatch(getHomeDataAction({token: 'DBF6C199828A0F555E09-73HLKC-47P9' }, baseUrl))
       return {}
@@ -21,6 +45,12 @@ class Home extends React.Component {
 
 
     componentDidMount () {
+        // const flexed = this.getFlexible()
+        // console.log(flexed, 'flexed')
+        // console.log('ready to show')
+        // flexed.then(res => {
+        //     res && 
+        // })
         // const baseUrl = `http://120.27.134.211:90`
         // this.props.getHomeDataAction({token: 'DBF6C199828A0F555E09-73HLKC-47P9' }, baseUrl)
     }
@@ -51,6 +81,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getHomeDataAction: bindActionCreators(getHomeDataAction, dispatch),
+        readyFlexible: bindActionCreators(readyFlexible, dispatch),
         //startClock: bindActionCreators(startClock, dispatch)
     }
 }

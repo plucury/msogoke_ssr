@@ -1,12 +1,12 @@
 import React from 'react';
 // import { Link } from 'react-router';
 import { connect } from 'react-redux';
-// import {format_unixtime} from 'dreamcog_timeformat'
+import {format_unixtime} from 'dreamcog_timeformat'
 // import LazyLoad from 'react-lazyload'
 // import { autobind } from 'core-decorators'
 
 // import ActionBar from '../DetailPages/ActionbarBlock'
-// import Simage from 'autoImage';
+// import Simage from '/components/templates/AutoImage/Simage';
 
 import './PostItem.scss';
 

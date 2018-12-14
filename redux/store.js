@@ -20,7 +20,6 @@ export const getNav = () => async (dispatch, getState) => {
 }
 
 export const initStore = (initialState = initialTotalState) => {
-
     return createStore(reducers, initialState, composeWithDevTools(applyMiddleware(thunkMiddleware)))
 }
 

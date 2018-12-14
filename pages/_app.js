@@ -8,7 +8,6 @@ import '../styles/_app.css'
 export default withRedux(initStore)(class MyApp extends App {
   static async getInitialProps ({Component, ctx}) {
     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {}
-    console.log(pageProps, 'pageProps')
     return {
       pageProps
     }

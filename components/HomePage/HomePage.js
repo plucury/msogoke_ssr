@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+// import Tloader from '/static/react-touch-loader';
 
 // import Tloader from '../Dist/react-touch-loader';
 
@@ -31,18 +32,18 @@ class IndexPage extends React.Component {
 
 		
 
-		let token
-		// const { token } = this.props.loginedSogoker
-		const { dataGeted, homeData } = this.props
+		// let token
+		// // const { token } = this.props.loginedSogoker
+		// const { dataGeted, homeData } = this.props
 
-		if (token) {
-			// if ( !(dataGeted && homeData && homeData.length) ) {
-			// 	var req = `/api/streams/activities/?token=${token}`
-			// 		this.props.getHomeDataAction(req, 1);
-			// }
-		}else{
-			// browserHistory.push('/')
-		}
+		// if (token) {
+		// 	// if ( !(dataGeted && homeData && homeData.length) ) {
+		// 	// 	var req = `/api/streams/activities/?token=${token}`
+		// 	// 		this.props.getHomeDataAction(req, 1);
+		// 	// }
+		// }else{
+		// 	// browserHistory.push('/')
+		// }
 	}
 
 	refresh(resolve, reject){
@@ -86,7 +87,7 @@ class IndexPage extends React.Component {
 	// }
 
 	render() {
-		let { homeData, hasMore } = this.props
+		let { homeData, hasMore, flexed } = this.props
     let { initializing, showed } = this.state
     let { refresh, loadMore } = this
 
@@ -95,7 +96,7 @@ class IndexPage extends React.Component {
 				<div className="tloader-wrapper pure-g">
 
 					{
-						homeData && homeData.length ?
+						homeData && homeData.length && flexed ?
 						<div className="index-block">
 							<div className="post-wrap">
 							{
@@ -104,7 +105,7 @@ class IndexPage extends React.Component {
 							</div>
 							
 						</div>
-						: ''
+						: <div>loading</div>
 					}
 
 				</div>
@@ -116,7 +117,8 @@ class IndexPage extends React.Component {
 
 const mapStateToProps = state => { 
     return {
-			...state.homeData
+			...state.homeData,
+			flexed: state.globalStatus.flexibleLoaded
 		}
 }
 const mapDispatchToProps = (dispatch) => {
